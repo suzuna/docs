@@ -2,6 +2,8 @@
 
 データ分析レポートなどのリンクを以下に示します。
 
+## データ分析系
+
 - [カルマンフィルタで株式のベータ値を推定する](https://suzuna.me/posts/stock-beta/)
   - マーケット全体と比べた個別株式の値動きの大きさを示す「ベータ値」を、線形・ガウスな状態空間モデルで定式化してカルマンフィルタで推定しました。
   - 実装: Python
@@ -20,3 +22,15 @@
 - [階層ベイズで東京23区のお部屋の家賃相場を推定する](https://suzuna.me/posts/rent-modeling/)
   - 東京23区の20万件程度の賃貸物件の家賃データを用いて、最寄り駅、面積、築年数、最寄り駅からの徒歩分数をもとに家賃相場を階層ベイズで推定しました。
   - 実装: R, Stan
+
+## バックエンド系
+
+- [ニコニコ動画の再生数の推移を見られるWebアプリを作った](https://suzuna.me/posts/nicolog/)
+  - ニコニコ動画の各動画の日次の再生数を見られるWebアプリを作成しました。
+  - リリースから約1年半時点で17億行 x 8列（160GB）のBigQueryテーブルを持ち、これにWebアプリからクエリをかけられるようにしています。
+  - [Webアプリはこちら](https://nicolog.suzuna.me/)
+  - 技術構成
+    - データの取得: VPS (Debian) / R + Python
+    - データの整形と蓄積: Cloud Functions + BigQuery
+    - Webアプリ: Streamlit + Heroku
+    - IaC: Terraform（Google Cloud部分のみ）
