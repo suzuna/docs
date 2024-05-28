@@ -3,7 +3,7 @@
 ## データ分析
 
 - [部屋の階数は家賃にどれだけ影響を与えるのか？](https://suzuna.me/posts/rent-by-floor/)
-  - 約12万件の東京23区の賃貸物件の家賃データを用いて、階層ベイズモデルで家賃相場をモデリングしました。
+  - 約12万件の東京23区の賃貸物件のSUUMOの家賃データを用いて、階層ベイズモデルで家賃相場をモデリングしました。
   - 築年数、駅からの徒歩分数、部屋の階数による家賃への影響を推定するとともに、最寄り駅別の家賃相場を示すことができました。
   - 実装: R, Stan
 - [カルマンフィルタで株式のベータ値を推定する](https://suzuna.me/posts/stock-beta/)
@@ -15,26 +15,18 @@
 
 ## Webアプリ
 
-各Webアプリは、デプロイしている環境でのコールドスタートのため、初回起動時に数十秒程度かかる可能性があります。ご容赦ください。
+各Webアプリは、デプロイしている環境でのコールドスタートのため、初回起動時に数十秒かかることがあります。ご容赦ください。
 
 - [Time-Varying Beta Chart](https://dev-streamlit-s5ootw75ka-an.a.run.app/)
   - 「カルマンフィルタで株式のベータ値を推定する」の分析をWebアプリ化しました。
   - 銘柄コードを入力すると、株価の取得とカルマンフィルタでのベータ値推定を行います。
-  - 技術構成
-    - ベータ値の推定API（バックエンド）: FastAPI (Python) + Docker, Google Cloud (Cloud Run + Artifact Registry)
-    - Webアプリ（フロントエンド）: Streamlit (Python) + Docker, Google Cloud (Cloud Run + Artifact Registry)
-    - IaC: Terraform
-    - 開発環境: Docker
-  - ソースコードはこちらをご覧ください: [suzuna/stock-beta-app](https://github.com/suzuna/stock-beta-app)
+  - 技術構成 (IaC: Terraform, 開発環境: Docker)
+    ![architecture_stock-beta-app](./architecture/architecture_stock-beta-app.drawio.svg)
+  - ソースコード: [suzuna/stock-beta-app](https://github.com/suzuna/stock-beta-app)
 - [ニコニコ動画の再生数の推移を見られるWebアプリ](https://nicolog.suzuna.me/)
   - ニコニコ動画の各動画の日次の再生数を見られるWebアプリを作成しました。
   - ニコニコ動画のAPI経由で毎日再生数を取得してBigQueryに格納しています（リリースから約1年半で17億行 x 8列（160GB））。このテーブルにWebアプリからクエリをかけられるようにしています。
-  - 技術構成
-    - バックエンド
-      - データの取得: R + Python, VPS
-      - データの整形と蓄積: Python, Google Cloud (Cloud Functions + BigQuery)
-    - フロントエンド
-      - Streamlit (Python), Heroku
-    - IaC: Terraform
+  - 技術構成 (IaC: Terraform)
+    ![architecture_nicolog-backend](./architecture/architecture_nicolog-backend.drawio.svg)
   - （参考）アーキテクチャの解説記事
     - [ニコニコ動画の再生数の推移を見られるWebアプリを作った](https://suzuna.me/posts/nicolog/)
