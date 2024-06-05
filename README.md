@@ -25,7 +25,7 @@
   - ソースコード: [suzuna/stock-beta-app](https://github.com/suzuna/stock-beta-app)
 - [ニコニコ動画の再生数の推移を見られるWebアプリ](https://nicolog.suzuna.me/)
   - ニコニコ動画の各動画の日次の再生数を見られるWebアプリを作成しました。
-  - ニコニコ動画のAPI経由で毎日再生数を取得してBigQueryに格納しています（リリースから約1年半で17億行 x 8列（160GB））。このテーブルにWebアプリからクエリをかけられるようにしています。
+  - ニコニコ動画のAPI経由で毎日再生数を取得してBigQueryに格納しています（リリースから2年弱の時点で20億行 x 8列（200GB））。このテーブルにWebアプリからクエリをかけられるようにしています。
   - 技術構成 (IaC: Terraform)
     ![architecture_nicolog-backend](./architecture/architecture_nicolog-backend.drawio.svg)
   - （参考）アーキテクチャの解説記事
