@@ -23,10 +23,10 @@
   - 技術構成 (IaC: Terraform, 開発環境: Docker)
     ![architecture_stock-beta-app](./architecture/architecture_stock-beta-app.drawio.svg)
   - ソースコード: [suzuna/stock-beta-app](https://github.com/suzuna/stock-beta-app)
-- [ニコニコ動画の再生数の推移を見られるWebアプリ](https://nicolog.suzuna.me/)
+- [ニコニコ動画の再生数の推移を見られるWebアプリ](https://dev-frontend-n2jb3odbgq-an.a.run.app/)
   - ニコニコ動画の各動画の日次の再生数を見られるWebアプリを作成しました。
   - ニコニコ動画のAPI経由で毎日再生数を取得してBigQueryに格納しています（リリースから2年弱の時点で20億行 x 8列（200GB））。このテーブルにWebアプリからクエリをかけられるようにしています。
   - 技術構成 (IaC: Terraform)
-    ![architecture_nicolog-backend](./architecture/architecture_nicolog-backend.drawio.svg)
+    ![architecture_nicolog-backend](./architecture/architecture_nicolog.drawio.svg)
   - （参考）アーキテクチャの解説記事
     - [ニコニコ動画の再生数の推移を見られるWebアプリを作った](https://suzuna.me/posts/nicolog/)
