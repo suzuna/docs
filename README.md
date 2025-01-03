@@ -22,10 +22,3 @@
     - ※無料で使用できる株価のデータソースが株式分割・併合に対応していない都合上、2018年以降に株式分割・併合が行われた銘柄ではベータ値が正しく推定できません。
   - 技術構成 (Python, IaC: Terraform, 開発環境: Docker)
     ![architecture_stock-beta-app](./architecture/architecture_stock-beta-app.drawio.svg)
-- [ニコニコ動画の再生数の推移を見られるWebアプリ](https://dev-frontend-n2jb3odbgq-an.a.run.app/)）（[アーキテクチャの解説記事](https://suzuna.me/posts/nicolog/)）
-  - ニコニコ動画の各動画の日次の再生数を見られるWebアプリを作成しました。
-  - ニコニコ動画のAPI経由で毎日再生数を取得してBigQueryに格納しています（リリースから2年の2024/9時点で20億行, 200GB）。このテーブルにWebアプリからクエリをかけられるようにしています。
-  - 技術構成 (Python, R, IaC: Terraform)
-    ![architecture_nicolog-backend](./architecture/architecture_nicolog.drawio.svg)
-  - （参考）アーキテクチャの解説記事
-    - [ニコニコ動画の再生数の推移を見られるWebアプリを作った](https://suzuna.me/posts/nicolog/)
